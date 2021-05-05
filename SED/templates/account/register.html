@@ -45,24 +45,24 @@
                 <p>Пожалуйста введите ваши данные.</p>
             </div>
             <div class="card-body">
-                <div class="form-group">
+               {% comment %}  <div class="form-group">
                     <input class="form-control form-control-lg" type="text" name="username" required="" placeholder="Имя пользователя" autocomplete="off">
-                </div>
+                </div> {% endcomment %}
                 {{form.username}}
 
-                <div class="form-group">
+                {% comment %} <div class="form-group">
                     <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="E-mail" autocomplete="off">
-                </div>
+                </div> {% endcomment %}
                 {{form.email}}
 
-                <div class="form-group">
+                {% comment %} <div class="form-group">
                     <input class="form-control form-control-lg" id="pass1" type="password" required="" placeholder="Пароль">
-                </div>
+                </div> {% endcomment %}
                 {{form.password1}}
 
-                <div class="form-group">
+                {% comment %} <div class="form-group">
                     <input class="form-control form-control-lg" required="" placeholder="Повторите пароль">
-                </div>
+                </div> {% endcomment %}
                 {{form.password2}}
 
                 <div class="form-group pt-2">
