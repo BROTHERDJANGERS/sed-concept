@@ -9,8 +9,9 @@ def index(request):
 def upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
+        namefile = request.POST.get('name')
         fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
+        filename = fs.save(namefile, myfile)
         uploaded_file_url = fs.url(filename)
         return render(request, 'upload.html', {
             'uploaded_file_url': uploaded_file_url
