@@ -15,14 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from SEDmenu import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('', views.index,name='index'),
-    path('accounts/', include('django.contrib.auth.urls')), # Добавили новый маршрут
-    path('upload/', views.upload),
+    path('', include('account.urls')),  
+    path('home/', include('home.urls')),     
     path('admin/', admin.site.urls),
 
 ]
