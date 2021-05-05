@@ -1,7 +1,18 @@
 from django.shortcuts import render
+from django.core.files.storage import FileSystemStorage
+from .forms import UploadForm
+from .models import Doc
  
 def index(request):
     return render(request, "index.html")
 
 def upload(request):
-    return render(request, "upload.html")
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'upload.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'upload.html')
