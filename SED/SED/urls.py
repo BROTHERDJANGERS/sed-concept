@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
 ]
+
+handler404 = 'home.views.err404' 
 # включаем возможность обработки картинок
 
 if settings.DEBUG:

@@ -1,5 +1,6 @@
 import os
 from django.shortcuts import render
+from django.template import RequestContext
 from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
@@ -27,3 +28,8 @@ def upload(request):
             'file_url': file_url
         })
     return render(request,'home/upload.html')
+
+def err404(request,exaptions,template_name='errs/404-page.html'):
+    response = render(request, template_name)
+    response.status_code = 404
+    return response  
