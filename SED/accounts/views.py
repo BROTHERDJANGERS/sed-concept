@@ -6,12 +6,16 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import *
-
+from django.http import HttpResponseRedirect
 
 
 
 def accounts(request):
-    return render(request,'accounts/accounts.html')
+	if request.user.is_authenticated:
+		return redirect('home')
+	else:
+		return redirect('login')
+	
 
 def loginPage(request):
 	if request.user.is_authenticated:
