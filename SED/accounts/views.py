@@ -4,6 +4,7 @@ from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.http import HttpResponseRedirect
@@ -15,7 +16,7 @@ def accounts(request):
 		return redirect('home')
 	else:
 		return redirect('login')
-	
+
 
 def loginPage(request):
 	if request.user.is_authenticated:
@@ -28,13 +29,14 @@ def loginPage(request):
 			user = authenticate(request, username=username, password=password)
 
 			if user is not None:
-				login(request, user)
+				auth.login(request, user)
 				return redirect('home')
 			else:
-				messages.info(request, 'Username OR password is incorrect')
+				messages.info(request, 'Логин или Пароль введен неверно.')
 
 		context = {}
-		return render(request, 'accounts/login.html', context)
+		return render(request, 'accounts/login.html', context)	
+
 
 def logoutUser(request):
 	logout(request)
