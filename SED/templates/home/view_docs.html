@@ -29,7 +29,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Concept</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Concept</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -123,12 +123,12 @@
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src=" {% static '/images/avatar-1.jpg'%}" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                    <span class="status"></span><span class="ml-2">Available</span>
+                                    <h5 class="mb-0 text-white nav-user-name">{{ request.user.username }}</h5>
+                                    <!--<span class="status"></span><span class="ml-2">Available</span>-->
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-power-off mr-2"></i>Выйти</a>
                             </div>
                         </li>
                     </ul>
@@ -177,7 +177,7 @@
                                             </div>
                                         </li>-->
                                         <li class="nav-item">
-                                            <a class="nav-link" href={% url 'home' %}">Профиль</a>
+                                            <a class="nav-link" href="{% url 'home' %}">Профиль  </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="upload">Загрузить файлы</a>
@@ -444,7 +444,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">Профиль</h2>
+                                <h2 class="pageheader-title">Добро пожаловать, {{ request.user.username }}</h2>
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
@@ -468,34 +468,36 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <form method="post" enctype="multipart/form-data">
-                                        <h5 class="text-muted">Доступные документы</h5>
+                                        <h3 class="mb-1">Доступные документы</h3> 
+                                        <h1 class="text-muted">{{ count }}</h1>
                                         <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">{{ count }}</h1>
-                                            <button class="btn btn-space btn-secondary">Открыть</button>
+                                            
+                                            <a href="{% url 'view_docs' %}" class="btn btn-space btn-secondary">Открыть</a>
                                         </div>
                                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                             <!--<span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>-->
                                         </form>   
-                                        </div>
-                                   <!--</div>
-                                    <div id="sparkline-revenue"></div>
-                                </div>-->
-                            </div>
-                            <!--<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="text-muted">Affiliate Revenue</h5>
-                                        <div class="metric-value d-inline-block">
-                                            <h1 class="mb-1">$12099</h1>
-                                        </div>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                                            <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
-                                        </div>
                                     </div>
-                                    <div id="sparkline-revenue2"></div>
+                                   </div>
+                                    <div id=""></div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="mb-1">Загрузить документы на подписание</h3>
+                                        <h1 class="text-muted">&#10149;</h1>
+                                        <div class="metric-value d-inline-block">
+                                            
+                                        </div>
+                                        <a href="{% url 'upload' %}" class="btn btn-space btn-secondary">Загрузить</a>
+                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                        </div>
+                                    </div>
+                                    <div id="""></div>
+                                </div>
+                            </div>
+                            <!--<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="text-muted">Refunds</h5>

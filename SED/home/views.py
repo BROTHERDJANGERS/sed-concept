@@ -44,6 +44,9 @@ def upload(request):
         })
     return render(request,'home/upload.html')
 
+def view_docs(request):
+    return render(request,'home/view_docs.html')
+
 def err404(request,exaptions,template_name='errs/404-page.html'):
     response = render(request, template_name)
     response.status_code = 404
