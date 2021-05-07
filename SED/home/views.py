@@ -19,7 +19,7 @@ def goHome(request):
 def home(request):
     if request.user.is_authenticated:
         if request.method == 'GET':
-            files = os.listdir(path="./media")
+            files = os.listdir(path="./media/docs")
             count = len(files)
             return render(request, 'home/home.html', {
                 'count': count 
@@ -38,13 +38,15 @@ def upload(request):
         fs = FileSystemStorage()
         Doc.objects.create(title='some title', doc=request.FILES['myfile'])
         # сохраняем на файловой системе
-        filename = fs.save(file.name, file)
+        #filename = fs.save(file.name, file)
         # получение адреса по которому лежит файл
-        file_url = fs.url(filename)
+        #file_url = fs.url(filename)
         
-        return render(request, 'home/upload.html', {
-            'file_url': file_url
-        })
+        return render(request, 'home/upload.html') 
+        #{
+         #   'file_url': file_url
+        #})
+
     return render(request,'home/upload.html')
 
 def view_docs(request):
