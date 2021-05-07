@@ -21,7 +21,8 @@ def home(request):
             files = os.listdir(path="./media")
             count = len(files)
             return render(request, 'home/home.html', {
-                'count': count
+                'count': count 
+
             })   
         return render(request,'home/home.html')
     else:
