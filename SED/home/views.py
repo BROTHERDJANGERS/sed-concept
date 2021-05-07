@@ -4,11 +4,8 @@ from django.template import RequestContext
 from django.core.files.storage import FileSystemStorage
 from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
-<<<<<<< HEAD
 from .models import Doc
-=======
-from django.conf import settings
->>>>>>> origin/crauth
+#from django.conf import settings
 
 # Create your views here.
 
