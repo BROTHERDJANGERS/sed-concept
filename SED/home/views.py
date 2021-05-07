@@ -1,19 +1,33 @@
 import os
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.template import RequestContext
 from django.core.files.storage import FileSystemStorage
+from django.contrib import auth
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
-def home(request):
-    if request.method == 'GET':
-        files = os.listdir(path="./media")
-        count = len(files)
-        return render(request, 'home/home.html', {
-            'count': count
-           })   
-    return render(request,'home/home.html')
 
+def goHome(request):
+    
+    if request.user.is_authenticated:
+        return redirect('home')
+    else:
+        return redirect('login')
+
+def home(request):
+    if request.user.is_authenticated:
+        if request.method == 'GET':
+            files = os.listdir(path="./media")
+            count = len(files)
+            return render(request, 'home/home.html', {
+                'count': count
+            })   
+        return render(request,'home/home.html')
+    else:
+        return redirect('login')
+    
+   
 
 def upload(request):
     if request.method == 'POST' and request.FILES:

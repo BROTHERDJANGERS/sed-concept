@@ -35,7 +35,7 @@ def loginPage(request):
 				messages.info(request, 'Логин или Пароль введен неверно.')
 
 		context = {}
-		return render(request, 'accounts/login.html', context)	
+		return render(request, 'registration/login.html', context)	
 
 
 def logoutUser(request):
