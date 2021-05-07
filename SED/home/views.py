@@ -4,6 +4,7 @@ from django.template import RequestContext
 from django.core.files.storage import FileSystemStorage
 from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
+from .models import Doc
 
 # Create your views here.
 
@@ -35,10 +36,12 @@ def upload(request):
         # получаем загруженный файл
         file = request.FILES['myfile']
         fs = FileSystemStorage()
+        Doc.objects.create(title='some title', doc=request.FILES['myfile'])
         # сохраняем на файловой системе
         filename = fs.save(file.name, file)
         # получение адреса по которому лежит файл
         file_url = fs.url(filename)
+        
         return render(request, 'home/upload.html', {
             'file_url': file_url
         })
