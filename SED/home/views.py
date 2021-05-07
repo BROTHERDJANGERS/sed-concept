@@ -4,16 +4,16 @@ from django.template import RequestContext
 from django.core.files.storage import FileSystemStorage
 from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
 
 # Create your views here.
 
-
-def goHome(request):
-    
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
+def auth(request):
+    if not request.user.is_authenticated:
         return redirect('login')
+        #return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+    else:
+        return redirect('home')
 
 def home(request):
     if request.user.is_authenticated:

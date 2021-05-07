@@ -4,21 +4,12 @@ from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from .models import *
-from django.http import HttpResponseRedirect
+
+# Create your views here.
 
 
-
-def accounts(request):
-	if request.user.is_authenticated:
-		return redirect('home')
-	else:
-		return redirect('login')
-
-
-def loginPage(request):
+def loginView(request):
 	if request.user.is_authenticated:
 		return redirect('home')
 	else:
@@ -29,19 +20,16 @@ def loginPage(request):
 			user = authenticate(request, username=username, password=password)
 
 			if user is not None:
-				auth.login(request, user)
+				login(request, user)
 				return redirect('home')
 			else:
-				messages.info(request, 'Логин или Пароль введен неверно.')
+				messages.info(request, 'Username OR password is incorrect')
 
 		context = {}
-		return render(request, 'registration/login.html', context)	
+		return render(request, 'registration/login.html', context)
+
 
 
 def logoutUser(request):
 	logout(request)
 	return redirect('login')
-
-
-
-
