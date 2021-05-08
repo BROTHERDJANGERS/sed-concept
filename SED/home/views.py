@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.core.files.storage import FileSystemStorage
 from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
-from .models import Doc,Actions_user
+from .models import add_Doc
 #from django.conf import settings
 
 # Create your views here.
@@ -40,9 +40,9 @@ def upload(request): # страница загрузки
         fs = FileSystemStorage()
         filename = fs.save(file.name, file)
         file_url = fs.url(filename)
-        d = datetime.date.today()
-        Doc.objects.create(title='some title', user_upload = username)
-        Actions_user.objects.create(action_name="Загурзка файла", time=d)
+        d = datetime.datetime.now()
+        add_Doc.objects.create(title=filename, user_upload = username)
+        Actions_user.objects.create(action_name="Загрузка файла", time=d,)
         return render(request, 'home/upload.html' ,
         {
             'file_url': file_url
@@ -56,9 +56,13 @@ def all_docs(request):
 def view_docs(request):
     return render(request,'home/view_docs.html')
 
-def history(request):
+def get_history(request):
     actions = Actions_user.objects.all()
     return render(request,'home/history.html', {'actions': actions})
+
+def history(request):
+    history_add_doc = add_Doc.objects.all()
+    return render(request,'home/history.html', {'history_add_doc': history_add_doc})
 
 def settings(request):
     return render(request,'home/settings.html')

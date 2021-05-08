@@ -7,15 +7,27 @@
  {% block content %}
 
 {% load static %}
-
-                    <div class="container-fluid">
-                        <ul class="list-group list-group-flush">
-                        {%for el in actions %}
-                            <li class="list-group-item"> {{el.action_name}} {{el.time}}</li> 
-                        {%endfor%}
-                                                        
-                            </ul>
-                                <!--<h5 class="card-header">Загурзка документов</h5>-->
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название файла</th>
+      <th scope="col">Кто добавил</th>
+      <th scope="col">Дата добавления</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for el in history_add_doc %}
+    <tr>
+      <th scope="row">{{el.id}}</th>
+      <td>{{el.title}}</td>
+      <td>{{el.user_upload}}</td>
+      <td>{{el.created_date}}</td>
+    </tr>
+     {%endfor%}
+      </tbody>
+</table>
+                    
                                  
                                 
                                         
