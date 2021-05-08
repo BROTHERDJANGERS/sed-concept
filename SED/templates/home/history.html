@@ -8,20 +8,15 @@
 
 {% load static %}
 
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="card">
+                    <div class="container-fluid">
+                        <ul class="list-group list-group-flush">
+                        {%for el in actions %}
+                            <li class="list-group-item"> {{el.action_name}} {{el.time}}</li> 
+                        {%endfor%}
+                                                        
+                            </ul>
                                 <!--<h5 class="card-header">Загурзка документов</h5>-->
                                  
-                                <div class="card-body">
-                                   {%for el in actions %}
-                                        <div class="form-group">
-                                            <h2 class="pageheader-title">{{el.action_name}} {{el.time}}</h2>
-                                        </div>
-                                    {%endfor%}
+                                
                                         
-                                        <div class="col-sm-6 pl-0">
-                                      </form>
-                                    <form action="#" id="basicform" data-parsley-validate="">
-                                        <div class="form-group">
-                                        </div>
  {% endblock  %}

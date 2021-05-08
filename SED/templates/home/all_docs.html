@@ -1,23 +1,22 @@
  {% extends 'base_home.html' %} &nbsp;
 
- {% block title %}Главная{% endblock %}
+ {% block title %}Все документы{% endblock %}
 
- {%block menuname%}Добро пожаловать , {{ request.user.first_name }} {{ request.user.last_name }} !{%endblock%}
+ {%block menuname%}Все документы{%endblock%}
 
  {% block content %}
 
 {% load static %}
 
-        
-                   <div class="ecommerce-widget">
 
+                   <div class="ecommerce-widget">
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <form method="post" enctype="multipart/form-data">
                                         <h3 class="mb-1">Доступные документы</h3> 
-                                        <h2 class="text-muted">{{ count }}</h2>
+                                        <h1 class="text-muted">{{ count }}</h1>
                                         <div class="metric-value d-inline-block">
                                             
                                             <a href="{% url 'view_docs' %}" class="btn btn-space btn-secondary">Открыть</a>
@@ -34,7 +33,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="mb-1">Загрузить документы на подписание</h3>
-                                        <h1 class="text-muted">&#128465;</h1>
+                                        <h1 class="text-muted">&#10149;</h1>
                                         <div class="metric-value d-inline-block">
                                             
                                         </div>
@@ -42,22 +41,40 @@
                                         <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                         </div>
                                     </div>
-                                    <div id="""></div>
+                                    
                                 </div>
                             </div>
-                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <!--<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h3 class="mb-1">История действий</h3>
-                                        <h1 class="text-muted">	&#128190;</h1>
+                                        <h5 class="text-muted">Refunds</h5>
                                         <div class="metric-value d-inline-block">
-                                            
+                                            <h1 class="mb-1">0.00</h1>
                                         </div>
-                                        <a href="{% url 'history' %}" class="btn btn-space btn-secondary">Открыть</a>
-                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                        <div class="metric-label d-inline-block float-right text-primary font-weight-bold">
+                                            <span>N/A</span>
                                         </div>
                                     </div>
-                                    <div id="""></div>
+                                    <div id="sparkline-revenue3"></div>
                                 </div>
                             </div>
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-muted">Avg. Revenue Per User</h5>
+                                        <div class="metric-value d-inline-block">
+                                            <h1 class="mb-1">$28000</h1>
+                                        </div>
+                                        <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
+                                            <span>-2.00%</span>
+                                        </div>
+                                    </div>
+                                    <div id="sparkline-revenue4"></div>
+                                </div>
+                            </div>
+                        </div>-->
+                        
+                           
+                      
+                            
 {% endblock content %}  

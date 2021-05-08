@@ -50,6 +50,9 @@ def upload(request): # страница загрузки
 
     return render(request,'home/upload.html')
 
+def all_docs(request):
+    return render(request,'home/all_docs.html')
+
 def view_docs(request):
     return render(request,'home/view_docs.html')
 
