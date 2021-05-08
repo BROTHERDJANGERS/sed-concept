@@ -29,17 +29,17 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="{% url 'home' %}">Concept</a>
+                <a class="navbar-brand" href="{% url 'home' %}">OKDOQI</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                        <!--<li class="nav-item">
+                        <li class="nav-item">
                             <div id="custom-search" class="top-search-bar">
                                 <input class="form-control" type="text" placeholder="Search..">
                             </div>
-                        </li>-->
+                        </li>
                         <li class="nav-item dropdown notification">
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
@@ -180,15 +180,17 @@
                                             <a class="nav-link" href="{% url 'home' %}">Профиль  </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="upload">Загрузить файлы</a>
+                                            <a class="nav-link" href="upload">Пойти нахуй</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
+                                        </ul>
+                                        </div>
+                                           {% comment %}  <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
                                             <div id="submenu-1-1" class="collapse submenu" style="">
                                                 <ul class="nav flex-column">
-                                                    <li class="nav-item">
+                                                     <li class="nav-item">
                                                         <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
-                                                    </li>
+                                                    </li> 
                                                     <li class="nav-item">
                                                         <a class="nav-link" href="influencer-finder.html">Influencer Finder</a>
                                                     </li>
@@ -200,8 +202,22 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                            <li class="nav-item">
+                            </li> {% endcomment %}
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fas fa-f fa-folder"></i>Документы <span class="badge badge-success">6</span></a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'home' %}">Все документы</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="upload">Загрузить файлы</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        </ul>
+                                        </div>
+                            {% comment %} <li class="nav-item">
+
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>UI Elements</a>
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
@@ -397,8 +413,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                            <li class="nav-item">
+                            </li> {% endcomment %}
+                            {% comment %} <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fas fa-f fa-folder"></i>Menu Level</a>
                                 <div id="submenu-10" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
@@ -421,9 +437,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Level 3</a>
                                         </li>
-                                    </ul>
+                                    </ul> 
                                 </div>
-                            </li>
+                            </li>{% endcomment %}
                         </ul>
                     </div>
                 </nav>
@@ -441,27 +457,19 @@
                     <!-- ============================================================== -->
                     <!-- pageheader  -->
                     <!-- ============================================================== -->
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="page-header">
-                                <h2 class="pageheader-title">Добро пожаловать , {{ request.user.first_name }} {{ request.user.last_name }} !</h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
-                                <div class="page-breadcrumb">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <!--<li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>-->
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                    
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
-                   <div class="ecommerce-widget">
+
+
+                    {% block content %}
+    
+    
+    
+                     {% endblock %}
+                   {% comment %} <div class="ecommerce-widget">
 
                         <div class="row">
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -511,7 +519,7 @@
                                     </div>
                                     <div id="""></div>
                                 </div>
-                            </div>
+                            </div> {% endcomment %}
                             <!--<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -982,22 +990,22 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <!--<div class="footer">
-                <div class="container-fluid">-->
+            {% comment %} <div class="footer">
+                <div class="container-fluid">
                     <div class="row">
-                       <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                              Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>-->
-                        <!--<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="text-md-right footer-links d-none d-sm-block">
                                 <a href="javascript: void(0);">About</a>
                                 <a href="javascript: void(0);">Support</a>
                                 <a href="javascript: void(0);">Contact Us</a>
-                            </div>-->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %}
             <!-- ============================================================== -->
             <!-- end footer -->
             <!-- ============================================================== -->
