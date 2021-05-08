@@ -1,10 +1,11 @@
 import os
+import datetime
 from django.shortcuts import render,redirect
 from django.template import RequestContext
 from django.core.files.storage import FileSystemStorage
 from django.contrib import auth
 from django.contrib.auth import authenticate, login, logout
-from .models import Doc
+from .models import Doc,Actions_user
 #from django.conf import settings
 
 # Create your views here.
@@ -39,7 +40,9 @@ def upload(request):
         fs = FileSystemStorage()
         filename = fs.save(file.name, file)
         file_url = fs.url(filename)
+        d = datetime.date.today()
         Doc.objects.create(title='some title', user_upload = username)
+        Actions_user.objects.create(action_name="Загурзка файла", time=d)
         return render(request, 'home/upload.html' ,
         {
             'file_url': file_url
@@ -49,6 +52,10 @@ def upload(request):
 
 def view_docs(request):
     return render(request,'home/view_docs.html')
+
+def history(request):
+    actions = Actions_user.objects.all()
+    return render(request,'home/history.html', {'actions': actions})
 
 def settings(request):
     return render(request,'home/settings.html')
