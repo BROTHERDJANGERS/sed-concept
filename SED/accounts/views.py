@@ -23,7 +23,7 @@ def loginView(request):
 				login(request, user)
 				return redirect('home')
 			else:
-				messages.info(request, 'Username OR password is incorrect')
+				messages.info(request, 'Имя пользователя или Пароль введен неверно.')
 
 		context = {}
 		return render(request, 'registration/login.html', context)
