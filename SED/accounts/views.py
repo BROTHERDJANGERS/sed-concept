@@ -26,7 +26,7 @@ def loginView(request):
 				messages.info(request, 'Имя пользователя или Пароль введен неверно.')
 
 		context = {}
-		return render(request, 'registration/login.html', context)
+		return render(request, 'accounts/login.html', context)
 
 
 
