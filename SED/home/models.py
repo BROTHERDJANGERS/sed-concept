@@ -14,3 +14,10 @@ class Doc(models.Model):
 
     def __str__(self):
         return self.title
+
+class Actions_user(models.Model):
+    action_name = models.CharField(max_length=150)
+    time = models.DateField()
+
+    def __str__(self):
+        return self.action_name
