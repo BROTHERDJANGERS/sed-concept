@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
     # file will be uploaded to MEDIA_ROOT / user_<id>/<filename>
 #    return 'user_{0}/{1}'.format(instance.user.id, filename)
 
-class Doc(models.Model):
+class Doc(models.Model): # таблица с данныи и о загрузке
     #user = models.ForeignKey(to=User, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=150)
     user_upload = models.CharField(max_length=150,null=True)
@@ -15,7 +15,7 @@ class Doc(models.Model):
     def __str__(self):
         return self.title
 
-class Actions_user(models.Model):
+class Actions_user(models.Model): # таблица с действиями
     action_name = models.CharField(max_length=150)
     time = models.DateField()
 
