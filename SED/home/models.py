@@ -26,14 +26,16 @@ class Actions_user(models.Model): # таблица с действиями
 
 
 #Таблица с данными о загрзке файла
-class add_Doc(models.Model):
+class add_Doc(models.Model):    
     title = models.CharField('Наименование документа',max_length=150)
     user_upload = models.CharField('Добавил',max_length=150,null=True)
-    created_date = models.DateTimeField(('Дата добавления'), auto_now=False, auto_now_add=True)
+    create_datetime = models.DateTimeField(('Дата добавления'), auto_now=False, auto_now_add=True)
+    action_name = models.CharField(("Действие"), max_length=50,default="")
 #Возвращение данных содержимого таблиы
     def __str__(self):
         return self.id
+        return self.action_name
         return self.title
         return self.user_upload
-        return self.created_date
+        return self.create_datetime
     

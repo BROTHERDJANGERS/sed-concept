@@ -1,21 +1,15 @@
  {% extends 'base_home.html' %} &nbsp;
 
- {% block title %}Все документы{% endblock %}
+ {% block title %}Просмотр{% endblock %}
 
- {%block menuname%}Все документы{%endblock%}
+ {%block menuname%}Просмотр , {{ request.user.first_name }} {{ request.user.last_name }} !{%endblock%}
 
  {% block content %}
 
 {% load static %}
 
 
-    <div class="list-group">  
-            {%for x in  %}
-        <button type="button" class="list-group-item list-group-item-action">{{}}{</button>
-  {%endfor%}
-    </div>
-                
-                           
-                      
+
+
                             
 {% endblock content %}  

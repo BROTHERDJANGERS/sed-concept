@@ -41,8 +41,8 @@ def upload(request): # страница загрузки
         filename = fs.save(file.name, file)
         file_url = fs.url(filename)
         d = datetime.datetime.now()
-        add_Doc.objects.create(title=filename, user_upload = username)
-        Actions_user.objects.create(action_name="Загрузка файла", time=d,)
+        add_Doc.objects.create(action_name="Загрузка файла",title=filename, user_upload = username,create_datetime=d)
+        #Actions_user.objects.create(action_name="Загрузка файла", time=d,)
         return render(request, 'home/upload.html' ,
         {
             'file_url': file_url
@@ -50,19 +50,25 @@ def upload(request): # страница загрузки
 
     return render(request,'home/upload.html')
 
-def all_docs(request):
-    return render(request,'home/all_docs.html')
 
-def view_docs(request):
-    return render(request,'home/view_docs.html')
 
-def get_history(request):
+
+
+""" def get_history(request):
     actions = Actions_user.objects.all()
-    return render(request,'home/history.html', {'actions': actions})
+    return render(request,'home/history.html', {'actions': actions}) """
 
 def history(request):
     history_add_doc = add_Doc.objects.all()
     return render(request,'home/history.html', {'history_add_doc': history_add_doc})
+
+def all_docs(request):
+    all_add_doc = add_Doc.objects.all()
+    return render(request,'home/all_docs.html', {'all_add_doc': all_add_doc})
+
+def view_docs(request):
+    view_add_doc = add_Doc.objects.all()
+    return render(request,'home/view_docs.html', {'view_add_doc': view_add_doc})
 
 def settings(request):
     return render(request,'home/settings.html')
