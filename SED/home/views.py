@@ -41,6 +41,7 @@ def upload(request): # страница загрузки
         filename = fs.save(file.name, file)
         file_url = fs.url(filename)
         d = datetime.datetime.now()
+        #Отправляем данные в базу
         add_Doc.objects.create(action_name="Загрузка файла",title=filename, user_upload = username,create_datetime=d)
         #Actions_user.objects.create(action_name="Загрузка файла", time=d,)
         return render(request, 'home/upload.html' ,
@@ -58,6 +59,8 @@ def upload(request): # страница загрузки
     actions = Actions_user.objects.all()
     return render(request,'home/history.html', {'actions': actions}) """
 
+
+#Вызов объектов class add_Doc / вызов формы
 def history(request):
     history_add_doc = add_Doc.objects.all()
     return render(request,'home/history.html', {'history_add_doc': history_add_doc})
