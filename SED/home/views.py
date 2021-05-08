@@ -20,7 +20,7 @@ def auth(request):
 def home(request):
     if request.user.is_authenticated:
         if request.method == 'GET':
-            files = os.listdir(path="./media/docs")
+            files = os.listdir(path="./media/")
             count = len(files)
             return render(request, 'home/home.html', {
                 'count': count 
@@ -32,7 +32,7 @@ def home(request):
     
    
 
-def upload(request):
+def upload(request): # страница загрузки
     if request.method == 'POST' and request.FILES:
         # получаем загруженный файл
         username = request.user.username
