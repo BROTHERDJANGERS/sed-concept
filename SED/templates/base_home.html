@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static "/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css" %}">
     <link rel="stylesheet" href="{% static "/vendor/charts/c3charts/c3.css" %}">
     <link rel="stylesheet" href="{% static "/vendor/fonts/flag-icon-css/flag-icon.min.css" %}">
-    <title>{% block title %}OKDOQI{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -151,7 +151,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-divider">
-                                Меню
+                                <h3>Меню</h3>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Меню пользователя <span class="badge badge-success">6</span></a>
@@ -462,7 +462,22 @@
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
-
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h3 class="pageheader-title">{%block menuname%}{%endblock%}</h3>
+                                
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <!--<li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>-->
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     {% block content %}
     
