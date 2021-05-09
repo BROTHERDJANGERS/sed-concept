@@ -39,19 +39,17 @@ def upload(request): # страница загрузки
         file = request.FILES['myfile']
         fs = FileSystemStorage()
         filename = fs.save(file.name, file)
-        file_url = fs.url(filename)
+        file_path = fs.url(filename)
         d = datetime.datetime.now()
         #Отправляем данные в базу
-        add_Doc.objects.create(action_name="Загрузка файла",title=filename, user_upload = username,create_datetime=d)
+        add_Doc.objects.create(action_name="Загрузка файла",title=filename, user_upload = username,create_datetime=d,file_url=file_path)
         #Actions_user.objects.create(action_name="Загрузка файла", time=d,)
-        return render(request, 'home/upload.html' ,
-        {
-            'file_url': file_url
-        })
+        return render(request, 'home/upload.html' ,{'file_path': file_path  })
 
     return render(request,'home/upload.html')
 
-
+""" def get_file_path(request):
+    return render(request{'file_path':file_path}) """
 
 
 

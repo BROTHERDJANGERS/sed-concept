@@ -10,14 +10,20 @@
 
                     
 
+<div class="list-group">
 
+ {%for el in all_add_doc %}
+    <a href="{{ el.file_url }}" class="list-group-item list-group-item-action">
+        <i class="button" ></i>{{el.title}} </a>
+        {%endfor%}                                        
+</div>
 
-<div class="list-group">  
-    {%for el in history_add_doc %}
-        <button type="button" class="list-group-item list-group-item-action" action=>Название:&nbsp;{{el.title}} &nbsp;Кто добавил:&nbsp;{{el.user_upload}}</button>
+{% comment %} <div class="list-group">  
+    {%for el in all_add_doc %}
+        <button type="button" class="list-group-item list-group-item-action" onclick="{{ el.file_url }}">Название:&nbsp;{{el.title}} &nbsp;Кто добавил:&nbsp;{{el.user_upload}}</button>
      {%endfor%}
     </div> 
-                
+                 {% endcomment %}
                            
                       
                             

@@ -143,4 +143,4 @@ MEDIA_ROOT = (
 )
 
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_URL = 'the name of the url'
+LOGOUT_URL = 'logout'

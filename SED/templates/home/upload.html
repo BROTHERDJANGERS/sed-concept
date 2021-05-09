@@ -28,12 +28,23 @@
                                             </p> {% endcomment %}
 
                                       </form>
-                                      <p>Ссылка: <a href="{{ file_url }}">{{ file_url }}</a></p>
+                                      <div class="btn-group">
+                                        <a href="{{ file_path }}" class="btn btn-primary active">
+                                            <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Просмотреть
+                                        </a>                                        
+                                    </div>
+
+                                      
+
+                                     {% comment %}  <a href="{{ file_path }}" class="button">Click Here</a>
+                                      <button type="button" class="list-group-item list-group-item-action" href="{{ file_path }}">Название:</button>
+                                      <p>Ссылка: <a href="{{ file_path }}">{{ file_path }}</a></p>
                                     <form action="#" id="basicform" data-parsley-validate="">
+                                    
                                         <div class="form-group">
                                          
                                            
-                                        </div>
+                                        </div> {% endcomment %}
                                         <!--<div class="form-group">
                                             <label for="inputEmail">Email address</label>
                                             <input id="inputEmail" type="email" name="email" data-parsley-trigger="change" required="" placeholder="Enter email" autocomplete="off" class="form-control">
