@@ -1,0 +1,4 @@
+python -m venv env
+pipenv install requests
+cd env
+cd Scripts

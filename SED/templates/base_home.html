@@ -21,6 +21,7 @@
 </head>
 
 <body>
+{% if user.is_authenticated %}
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -1057,7 +1058,9 @@
     <script src="{% static "/vendor/charts/c3charts/C3chartjs.js" %}"></script>
     <script src="{% static "/js/dashboard-ecommerce.js" %}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/decoupled-document/ckeditor.js"></script>
-
+{%else%}
+<h1>Пошел нахуй</h1>
+{%endif%}
 </body>
  
 </html>

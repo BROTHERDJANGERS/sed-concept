@@ -8,7 +8,7 @@
 {% load static %}
 
 
-                    
+ {%if perms.home.view_add_doc%}             
 
 <div class="list-group">
 
@@ -29,7 +29,10 @@
         <i class="button" ></i>
     </a>-->
         
-        {%endfor%}                                        
+        {%endfor%}        
+{%else%}
+<h1>Просмотр файлов закрыт</h1>
+{%endif%}
 </div>
 
 {% comment %} <div class="list-group">  

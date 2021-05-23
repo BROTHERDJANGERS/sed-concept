@@ -8,7 +8,7 @@
 
 {% load static %}
 
-
+ {%if perms.home.add_add_doc%}
                         <div class="card">
                             <div class="card-body">
                                 <div class="card-body">
@@ -28,6 +28,7 @@
                                             </p> {% endcomment %}
 
                                       </form>
+                                     
                                       <div class="btn-group">
                                         <a href="{{ file_path }}" class="btn btn-primary active">
                                             <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i> Просмотреть
@@ -66,4 +67,7 @@
                                 </div>
                             </div>
                         </div>
+                        {%else%}
+                        <h1>Нельзя загружать файлы</h1>
+                        {%endif%}
 {% endblock content %}  
