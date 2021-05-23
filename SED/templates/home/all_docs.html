@@ -16,13 +16,13 @@
 <div class="list-group-item list-group-item-action">
     <p>{{el.title}} </p>
     <div class="list-group-item list-group-item-action">
-        <a href="" class="btn btn-space btn-secondary">Информация о документе</a>
+        {% comment %} <a href="" class="btn btn-space btn-secondary">Информация о документе</a> {% endcomment %}
         <a href="{{ el.file_url }}" class="btn btn-space btn-secondary">Просмотр</a>
         <a href="" class="btn btn-space btn-secondary">Подписать</a>
          {%if perms.home.delete_add_doc%}
         <a href="" class="btn btn-space btn-secondary">Удалить</a>
         {%else%}
-        <a href="" class="btn btn-space btn-secondary" disabled>Удалить</a>
+        <a href="" class="btn btn-space btn-secondary disabled" >Удалить</a>
         {%endif%}
 
     </div>
