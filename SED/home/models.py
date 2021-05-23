@@ -31,7 +31,9 @@ class add_Doc(models.Model):
         return self.file_url
 
 
-
+#class Signature(models.Model):
+    #file = models.ForeignObject(add_Doc,on_delete=models.CASCADE)
+    #user_signature = models.CharField('Подписал',max_length=150,null=True)
 
     #title = models.ForeignKey(add_Doc,on_delete=models.CASCADE)
 
