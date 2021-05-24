@@ -4,22 +4,29 @@
 
  {%block menuname%}Список документов , {{ request.user.first_name }} {{ request.user.last_name }} !{%endblock%}
 
- {% block content %}
+{% block content %}
 {% load static %}
 
 
  {%if perms.home.view_add_doc%}             
 
 <div class="list-group">
-
+<form method="post" action="home/signature">   
  {%for el in all_add_doc %}
 <div class="list-group-item list-group-item-action">
-    <p>{{el.title}} </p>
+    <p>{{el.title}}</p>
     <div class="list-group-item list-group-item-action">
         {% comment %} <a href="" class="btn btn-space btn-secondary">Информация о документе</a> {% endcomment %}
         <a href="{{ el.file_url }}" class="btn btn-space btn-secondary">Просмотр</a>
+
+
+
+    {% comment %} Отправить запись в модель Signature  в home/view.py  {% endcomment %}
         <a href="" class="btn btn-space btn-secondary">Подписать</a>
-         {%if perms.home.delete_add_doc%}
+  
+
+  
+        {%if perms.home.delete_add_doc%}
         <a href="" class="btn btn-space btn-secondary">Удалить</a>
         {%else%}
         <a href="" class="btn btn-space btn-secondary disabled" >Удалить</a>
@@ -27,7 +34,7 @@
 
     </div>
 </div>
-
+</form>
  <!--   <a href="{{ el.file_url }}" class="list-group-item list-group-item-action">
         <i class="button" ></i>
     </a>-->

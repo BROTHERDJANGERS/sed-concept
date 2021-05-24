@@ -17,6 +17,8 @@ from django.contrib.auth.models import Group
 
 # Create your views here.
 
+def signature(request):
+   title = request.POST["title"]
 
 class viewDoc(PermissionRequiredMixin,generic.DetailView):     
     permission_required = 'home.add_add_doc'

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
 
+from django.contrib.postgres.fields import ArrayField
 
 
 
@@ -21,6 +22,7 @@ class add_Doc(models.Model):
     create_datetime = models.DateTimeField(('Дата добавления'), auto_now=False, auto_now_add=True)
     action_name = models.CharField(("Действие"), max_length=50,default="")
     file_url = models.CharField(("Ссылка на документ"), max_length=50,default="")
+    
 #Возвращение данных содержимого таблиы
     def __str__(self):
         return self.id
@@ -31,10 +33,18 @@ class add_Doc(models.Model):
         return self.file_url
 
 
-#class Signature(models.Model):
-    #file = models.ForeignObject(add_Doc,on_delete=models.CASCADE)
+class Signature(models.Model):
+    
+    file = models.ForeignKey(add_Doc,on_delete=models.CASCADE)
     #user_signature = models.CharField('Подписал',max_length=150,null=True)
-
+    user_signature = ArrayField(models.CharField(max_length=200), blank=True),
+    date_signature = models.DateField()
+    
+    def __str__(self):
+        return self.file
+        return self.user_signature
+    
+          
     #title = models.ForeignKey(add_Doc,on_delete=models.CASCADE)
 
 
